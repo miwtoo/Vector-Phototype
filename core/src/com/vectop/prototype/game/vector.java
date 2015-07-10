@@ -51,7 +51,7 @@ public class vector extends ApplicationAdapter {
 		Hero.x = 10;
 		Hero.y = 150;
 
-		//Test
+
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 640, 640);
 		camera.update();
@@ -80,7 +80,7 @@ public class vector extends ApplicationAdapter {
 		if(Gdx.input.isKeyPressed(Keys.LEFT)){Hero.x -= 80*deltaTime; }
 		if(Gdx.input.isKeyPressed(Keys.RIGHT)){Hero.x += 80*deltaTime;}
 
-		System.out.println(currentFrame);
+		//System.out.println(currentFrame);
 		//if(Hero.overlaps(mapRenderer)){};
 		//Hero.y -= 200*deltaTime;
 	}
