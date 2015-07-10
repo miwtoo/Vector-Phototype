@@ -80,7 +80,7 @@ public class vector extends ApplicationAdapter {
 		if(Gdx.input.isKeyPressed(Keys.LEFT)){Hero.x -= 80*deltaTime; }
 		if(Gdx.input.isKeyPressed(Keys.RIGHT)){Hero.x += 80*deltaTime;}
 
-		//System.out.println(currentFrame);
+		System.out.println(currentFrame);
 		//if(Hero.overlaps(mapRenderer)){};
 		//Hero.y -= 200*deltaTime;
 	}
