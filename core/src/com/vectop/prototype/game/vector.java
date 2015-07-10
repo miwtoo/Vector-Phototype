@@ -51,7 +51,7 @@ public class vector extends ApplicationAdapter {
 		Hero.x = 10;
 		Hero.y = 150;
 
-
+		//Test
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 640, 640);
 		camera.update();
