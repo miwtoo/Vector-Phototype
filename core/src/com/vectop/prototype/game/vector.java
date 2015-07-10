@@ -8,11 +8,20 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.maps.MapLayer;
+import com.badlogic.gdx.maps.MapObject;
+import com.badlogic.gdx.maps.MapObjects;
+import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.maps.tiled.tiles.StaticTiledMapTile;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.utils.Array;
+
+import java.util.Map;
 
 public class vector extends ApplicationAdapter {
 
@@ -58,6 +67,7 @@ public class vector extends ApplicationAdapter {
 
 		stateTime = 0f;
 
+
 	}
 
 	@Override
@@ -79,8 +89,8 @@ public class vector extends ApplicationAdapter {
 
 		if(Gdx.input.isKeyPressed(Keys.LEFT)){Hero.x -= 80*deltaTime; }
 		if(Gdx.input.isKeyPressed(Keys.RIGHT)){Hero.x += 80*deltaTime;}
-
-		System.out.println(currentFrame);
+		//Hero.y -= 50*deltaTime;
+		//System.out.println(currentFrame);
 		//if(Hero.overlaps(mapRenderer)){};
 		//Hero.y -= 200*deltaTime;
 	}
