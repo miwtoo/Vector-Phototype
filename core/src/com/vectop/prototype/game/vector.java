@@ -5,55 +5,32 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.maps.MapLayer;
-import com.badlogic.gdx.maps.MapObject;
-import com.badlogic.gdx.maps.MapObjects;
-import com.badlogic.gdx.maps.objects.RectangleMapObject;
-import com.badlogic.gdx.maps.tiled.TiledMap;
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import com.badlogic.gdx.maps.tiled.TmxMapLoader;
-import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.Input.Keys;
-import com.badlogic.gdx.maps.tiled.tiles.StaticTiledMapTile;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.utils.Array;
-
-import java.util.Map;
 
 public class vector extends ApplicationAdapter {
 
 	SpriteBatch batch;
 
-	TiledMap map;
-	OrthogonalTiledMapRenderer mapRenderer;
 
 	OrthographicCamera camera;
 
 	Texture imageHero;
 	TextureRegion[][] regions;
 
-	Animation stan;
 
 	Rectangle Hero;
-
-	TextureRegion currentFrame;
-	float stateTime;
 
 
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
 
-		map = new TmxMapLoader().load("untitled.tmx");
-		mapRenderer = new OrthogonalTiledMapRenderer(map);
-
 		imageHero = new Texture(Gdx.files.internal("warrior_m.png"));
 
 		regions = TextureRegion.split(imageHero,imageHero.getWidth()/3,imageHero.getHeight()/4);
-		stan = new Animation(1,regions[1][0],regions[1][1],regions[1][2]);
 
 		Hero = new Rectangle();
 
@@ -65,9 +42,6 @@ public class vector extends ApplicationAdapter {
 		camera.setToOrtho(false, 640, 640);
 		camera.update();
 
-		stateTime = 0f;
-
-
 	}
 
 	@Override
@@ -77,11 +51,6 @@ public class vector extends ApplicationAdapter {
 
 		camera.update();
 		float deltaTime = Gdx.graphics.getDeltaTime();
-		stateTime += deltaTime;
-		currentFrame = stan.getKeyFrame(stateTime,true);
-
-		mapRenderer.setView(camera);
-		mapRenderer.render();
 
 		batch.begin();
 		batch.draw(regions[1][0], Hero.x, Hero.y);
@@ -89,9 +58,5 @@ public class vector extends ApplicationAdapter {
 
 		if(Gdx.input.isKeyPressed(Keys.LEFT)){Hero.x -= 80*deltaTime; }
 		if(Gdx.input.isKeyPressed(Keys.RIGHT)){Hero.x += 80*deltaTime;}
-		//Hero.y -= 50*deltaTime;
-		//System.out.println(currentFrame);
-		//if(Hero.overlaps(mapRenderer)){};
-		//Hero.y -= 200*deltaTime;
 	}
 }
